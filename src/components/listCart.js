@@ -25,6 +25,7 @@ export default function ListCartComponent() {
                Abacaxi
              </Typography>} 
             secondary="R$ 15" />
+             
         <IconButton
               size="large"
               edge="end"
