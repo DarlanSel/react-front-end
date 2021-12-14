@@ -1,11 +1,13 @@
+import React, {useState, useEffect}  from 'react'
+
 // Components
 import ProductCardComponent from '../components/productCard'
+import ProductGridComponent from '../components/productGrid'
 import Grid from '@mui/material/Grid'
 
 export default function ProductsView(){
   return(
     <div>
-      <br />
       <div>
         <Grid container spacing={12} justifyContent="center">
           <Grid item>
@@ -28,6 +30,8 @@ export default function ProductsView(){
           </Grid>
         </Grid>
       </div>
+
+      <ProductGridComponent/>
     </div>
   );
 }
