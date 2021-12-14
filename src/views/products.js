@@ -7,9 +7,21 @@ export default function ProductsView(){
     <div>
       <br />
       <div>
-        <Grid container spacing={6} justifyContent="center" alignItems="center">
+        <Grid container spacing={12} justifyContent="center">
           <Grid item>
             <ProductCardComponent product='Cenoura' price='15'/>
+          </Grid>
+          <Grid item>
+            <ProductCardComponent product='Abacaxi' price='15'/>
+          </Grid>
+          <Grid item>
+            <ProductCardComponent product='Abacaxi' price='15'/>
+          </Grid>
+          <Grid item>
+            <ProductCardComponent product='Abacaxi' price='15'/>
+          </Grid>
+          <Grid item>
+            <ProductCardComponent product='Abacaxi' price='15'/>
           </Grid>
           <Grid item>
             <ProductCardComponent product='Abacaxi' price='15'/>
