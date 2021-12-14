@@ -4,6 +4,7 @@ import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
+import CardActionArea from "@mui/material/CardActionArea"
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid'
 
@@ -16,30 +17,17 @@ const bull = (
   </Box>
 );
 
-export default function ProductCardComponent({ product }) {
+export default function ProductCardComponent({ product, price }) {
   return (
-    <Grid item xs>
-      <Card sx={{ maxWidth: 275 }}>
-        <CardContent>
-          <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-            Word of the Day
-          </Typography>
-          <Typography variant="h5" component="div">
-            be{bull}nev{bull}o{bull}lent
-          </Typography>
-          <Typography sx={{ mb: 1.5 }} color="text.secondary">
-            adjective
-          </Typography>
-          <Typography variant="body2">
-            well meaning and kindly.
-            <br />
-            {'"a benevolent smile"'}
-          </Typography>
-        </CardContent>
-        <CardActions>
-          <Button size="small">Learn More</Button>
-        </CardActions>
+    <div className="body-app">
+      <Card sx={{ maxWidth: 300, minWidth: 200 }} color='red'>
+        <CardActionArea>
+          <CardContent>
+            <Typography gutterBottom variant="h4" component="div"> {product} </Typography>
+            <Typography variant="h6" color="text.primary"> R&#36; {price} </Typography>
+          </CardContent>
+          </CardActionArea>
       </Card>
-    </Grid>
+    </div>
   );
 }
