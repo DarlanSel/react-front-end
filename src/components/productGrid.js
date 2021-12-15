@@ -1,6 +1,10 @@
 import React from 'react';
 import axios from 'axios';
 
+// Components
+import ProductCardComponent from '../components/productCard'
+import Grid from '@mui/material/Grid'
+
 export default class ProductGridComponent extends React.Component {
   state = {
     products: []
@@ -19,9 +23,14 @@ export default class ProductGridComponent extends React.Component {
   render() {
     return (
       <div>
-        <ul>
-          { this.state.products.map(product => <li key={product.id}>{product.name}</li>) }
-        </ul>
+        <br />
+        <Grid container spacing={12} justifyContent="center">
+          { this.state.products.map(product => (
+            <Grid item>
+              <ProductCardComponent product={product}/>
+            </Grid>
+          )) }
+        </Grid>
       </div>
     )
   }
