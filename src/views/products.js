@@ -1,33 +1,12 @@
+import React, {useState, useEffect}  from 'react'
+
 // Components
-import ProductCardComponent from '../components/productCard'
-import Grid from '@mui/material/Grid'
+import ProductGridComponent from '../components/productGrid'
 
 export default function ProductsView(){
   return(
     <div>
-      <br />
-      <div>
-        <Grid container spacing={12} justifyContent="center">
-          <Grid item>
-            <ProductCardComponent product='Cenoura' price='15'/>
-          </Grid>
-          <Grid item>
-            <ProductCardComponent product='Abacaxi' price='15'/>
-          </Grid>
-          <Grid item>
-            <ProductCardComponent product='Abacaxi' price='15'/>
-          </Grid>
-          <Grid item>
-            <ProductCardComponent product='Abacaxi' price='15'/>
-          </Grid>
-          <Grid item>
-            <ProductCardComponent product='Abacaxi' price='15'/>
-          </Grid>
-          <Grid item>
-            <ProductCardComponent product='Abacaxi' price='15'/>
-          </Grid>
-        </Grid>
-      </div>
+      <ProductGridComponent/>
     </div>
   );
 }

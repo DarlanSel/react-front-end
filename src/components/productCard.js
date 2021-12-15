@@ -9,6 +9,9 @@ import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import CardActionArea from "@mui/material/CardActionArea"
+import axios from 'axios';
+
+const { token } = require('../config');
 
 
 const ExpandMore = styled((props) => {
@@ -22,19 +25,28 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-export default function ProductCardComponent({ product, price }) {
+export default function ProductCardComponent({ product }) {
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
 
+  const handleBuyClick = (productId) => {
+    axios.post("http://localhost:3000/cart/items", { productId, quantity: 1 }, {
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': token
+      }
+    })
+  }
+
   return (
     <Card sx={{ maxWidth: 300, minWidth: 300 }} >
       <CardActionArea>
           <CardContent>
-            <Typography gutterBottom variant="h4" component="div"> {product} </Typography>
-            <Typography variant="h6" color="text.primary"> R&#36; {price} </Typography>
+            <Typography gutterBottom variant="h4" component="div"> {product.name} </Typography>
+            <Typography variant="h6" color="text.primary"> R&#36; {product.price} </Typography>
           </CardContent>
           </CardActionArea>
       <CardActions disableSpacing>
@@ -44,6 +56,7 @@ export default function ProductCardComponent({ product, price }) {
               color="inherit"
               sx={{ mr: 2 }}
               style={{color: '#751d1db7'}}
+              onClick={() => handleBuyClick(product.id)}
               >
               <AddShoppingCartIcon />
             </IconButton>
@@ -64,7 +77,7 @@ export default function ProductCardComponent({ product, price }) {
             Heat 1/2 cup of the broth in a pot until simmering, add saffron and set
             aside for 10 minutes.
           </Typography>
-          
+
         </CardContent>
       </Collapse>
     </Card>
